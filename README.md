@@ -1,5 +1,5 @@
 ---
-layout: haiku
+layout: octopus
 title: Octopus Cloud
 author: Eugene
 ---
