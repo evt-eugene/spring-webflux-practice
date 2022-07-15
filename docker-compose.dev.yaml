@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  app:
+    build:
+      context: .
+      target: development
+    ports:
+      - 8080:8080
+      - 5005:5005
+    environment:
+      SERVER_PORT: 8080
+      CASSANDRA_CONTACT-POINTS: cassandra
+    volumes:
+      - ./:/app
+
+  cassandra:
+    image: cassandra:4.0.4
+    ports:
+      - "9042:9042"
+    volumes:
+      - cassandra_data:/var/lib/cassandra
+      - cassandra_config:/etc/cassandra
+      - ./cassandra_config/cassandra.yaml:/etc/cassandra/cassandra.yaml
+    environment:
+      CASSANDRA_CLUSTER_NAME: BooksCluster
+
+volumes:
+  cassandra_data:
+  cassandra_config:

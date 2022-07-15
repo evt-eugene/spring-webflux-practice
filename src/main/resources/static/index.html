@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Spring WebFlux + Thymeleaf</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+
+    <ul>
+      <li>
+        <a href="/students/view">View students</a>
+      </li>
+      <li>
+        <a href="/students">Students JSON</a>
+      </li>
+      <li>
+        <a href="/students/12">Student with ID=12</a>
+      </li>
+      <li>
+        <a href="/librarians/view">View all librarians using CqlTemplate</a>
+      </li>
+      <li>
+        <a href="/janitors">View all janitors as JSON</a>
+      </li>
+      <li>
+        <a href="/janitors?as_chemical_view=true">Use custom function for janitors (count_janitors_if_works_with_chemicals) as JSON</a>
+      </li>
+      <li>
+        <a href="/janitors?as_total_chemical_view=true">Use custom aggregate for janitors (total_chemical_janitors) as JSON</a>
+      </li>
+      <li>
+        <a href="/janitors_view/add_janitor.html">Add janitor</a>
+      </li>
+      <li>
+        <a href="/janitors_view/update_janitor.html">Update janitor</a>
+      </li>
+      <li>
+        <a href="/janitors_view/find_janitor_by_characteristic.html">Find janitor by SASI-indexed characteristic</a>
+      </li>
+      <li>
+        <a href="/janitors_view/delete_janitor.html">Delete janitor</a>
+      </li>
+      <li>
+        <a href="/stocks/view">Stocks sse stream</a>
+      </li>
+      <li>
+        <a href="/profiles">Profiles (admin only)</a>
+      </li>
+      <li>
+        <a href="/greeting/get">Get greeting</a>
+      </li>
+      <li>
+        <a href="/greeting/fetch">Fetch greeting from Web-resource</a>
+      </li>
+      <li>
+        <a href="/books">Show all books from db as JSON</a>
+      </li>
+      <li>
+        <a href="/books/cached">See 2 last cached books (by replayProcessor) from db as JSON</a>
+      </li>
+      <li>
+        <a href="/books?title=ddd">Show all books with a title "ddd" as JSON</a>
+      </li>
+      <li>
+        <a href="/books/booksWithDDDTitle">Update publishing year for all books with a title "ddd"</a>
+      </li>
+      <li>
+        <a href="/books/add">Add book using Content-Type: text/html</a>
+      </li>
+      <li>
+        <a href="/books/add/reactively">Add book using Content-Type: text/html and Transfer-Encoding: chunked</a>
+      </li>
+      <li>
+        <a href="/chat.html">WebSocket demo</a>
+      </li>
+      <li>
+        <a href="/logout">Logout</a>
+      </li>
+    </ul>
+
+  </body>
+</html>

@@ -1,0 +1,41 @@
+version: "3.9"
+
+services:
+
+  cassandra:
+    image: cassandra:${CASSANDRA_VERSION:-4.0.4}
+    ports:
+      - "9042:9042"
+    volumes:
+      - ./cassandra_config/cassandra.yaml:/etc/cassandra/cassandra.yaml
+    environment:
+      CASSANDRA_CLUSTER_NAME: BooksCluster
+    healthcheck:
+      test: [ "CMD", "cqlsh", "-e", "describe keyspaces" ]
+      interval: 5s
+      timeout: 5s
+      retries: 60
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 2g
+        reservations:
+          cpus: '0.25'
+          memory: 1g
+
+  prometheus:
+    image: prom/prometheus:${PROMETHEUS_VERSION:-v2.36.2}
+    user: root
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus_config/prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+
+  grafana:
+    image: grafana/grafana:${GRAFANA_VERSION:-9.0.0}
+    user: root
+    ports:
+      - "3000:3000"
